@@ -1,6 +1,6 @@
 # MOSXAV: A Benchmark Dataset for Multi-Object Segmentation in X-ray Angiography Videos
 
-<a href="https://github.com/xilin-x/MOSXAV" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Homepage-MOSXAV-yellow?logo=databricks&logoColor=%23FF3621"></a> <a href="https://link.springer.com/chapter/10.1007/978-3-032-05472-2_2" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/SN-DGM4MICCAI 2025-f8f8f8?style=flat&labelColor=01324b"></a> <a href="https://arxiv.org/abs/2507.16429" target="_blank"><img src="https://img.shields.io/badge/arXiv-2507.16429-b31b1b?style=flat&logo=arXiv&logoColor=%23B31B1B"></a>
+<a href="https://xilin-x.github.io/MOSXAV/" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Homepage-MOSXAV-yellow?logo=databricks&logoColor=%23FF3621"></a> <a href="https://link.springer.com/chapter/10.1007/978-3-032-05472-2_2" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/SN-DGM4MICCAI 2025-f8f8f8?style=flat&labelColor=01324b"></a> <a href="https://arxiv.org/abs/2507.16429" target="_blank"><img src="https://img.shields.io/badge/arXiv-2507.16429-b31b1b?style=flat&logo=arXiv&logoColor=%23B31B1B"></a>
 
 ## 1. Overview
 
