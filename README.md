@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-**MOSXAV** is a benchmark dataset designed for **multi-object segmentation** in X-ray angiography videos. It provides **high-quality, manually annotated segmentation ground truth**, supporting the analysis of vascular structures in dynamic medical imaging. Each video contains **33$\sim$70** frames at a resolution of **512$\times$512 pixels**. Vascular regions are annotated by experienced radiologists, with annotations focused on **one or two key frames** where the contrast agent is most prominent.
+**MOSXAV** is a benchmark dataset designed for **multi-object segmentation** in X-ray angiography videos. It provides **high-quality, manually annotated segmentation ground truth**, supporting the analysis of vascular structures in dynamic medical imaging. Each video contains **33&sim;70** frames at a resolution of **512&times;512 pixels**. Vascular regions are annotated by experienced radiologists, with annotations focused on **one or two key frames** where the contrast agent is most prominent.
 
 - The **training and validation sets** include **30 sequences** (2,335 frames), with **annotations every 5 frames**.
 - The **test set** consists of **12 sequences** (488 frames), with **frame-level annotations** throughout.
