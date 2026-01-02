@@ -1,210 +1,254 @@
-
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PHBZXG5S"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOSXAV: Benchmark Dataset for X-ray Angiography</title>
 
-        gtag('config', 'G-E4PHBZXG5S');
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 
-    <title>MOSXAV: A Benchmark Dataset for Multi-Object Segmentation in X-ray Angiography Videos</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="https://fonts.cdnfonts.com/css/limetart" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link href="style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
         }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #2c3e50 0%, #000000 100%); color: white; padding: 3rem 0; text-align: center; margin-bottom: 2rem; }
+        header h1 { color: white; margin-bottom: 0.5rem; font-size: 2.2rem; }
+        header p { opacity: 0.8; font-size: 1.1rem; }
+        .container { max-width: 900px; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 2.5rem; color: var(--primary); }
+        h3 { color: var(--accent); margin-top: 1.5rem; }
+        .card { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 5px solid var(--accent); margin-bottom: 1.5rem; }
+        pre { background: #2d3436 !important; color: #dfe6e9 !important; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th { background-color: #f4f4f4; }
+        .color-badge { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 5px; border: 1px solid #ddd; }
+        .license-img { margin-top: 1rem; }
+        .contact-img { vertical-align: middle; height: 1.2em; }
+        code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
 
-        table.center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @import url('https://fonts.cdnfonts.com/css/limetart');
+        /* Demo Section Styling */
+        .demo-section { margin-top: 3rem; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ height: 0; overflow: hidden; max-width: 100%; background: #000; margin-bottom: 2rem; border-radius: 8px; }
+        .video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid #eee; transition: transform 0.2s ease-in-out; }
+        .gallery img:hover { transform: scale(1.03); }
     </style>
 </head>
-
 <body>
-    <br><br><br><br>
+
+<header>
     <div class="container">
-        <div class="row text-center" style="font-size:38px">
-            <div class="col">
-                MOSXAV: A Benchmark Dataset for Multi-Object Segmentation in X-ray Angiography Videos
-            </div>
-        </div>
-
-        <br>
-        <div class="row text-center" style="font-size:28px">
-            <div class="col">
-                5th Deep Generative Models Workshop @ MICCAI 2025
-            </div>
-        </div>
-        <br>
-
-        <div class="h-100 row text-center heavy justify-content-md-center" style="font-size:24px;">
-            <div class="col-sm-3">
-                <a href="https://xilin-x.github.io/">Lin Xi</a>
-            </div>
-            <div class="col-sm-3">
-                <a href="https://research-portal.uea.ac.uk/en/persons/yingliang-ma">Yingliang Ma</a>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="h-100 row text-center justify-content-md-center" style="font-size:20px;">
-            <div class="col-sm-2">
-                <a href="https://github.com/xilin-x/MOSXAV" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Dataset-MOSXAV-yellow?logo=databricks&logoColor=%23FF3621"></a>
-            </div>
-            <div class="col-sm-2">
-                <a href="https://link.springer.com/chapter/10.1007/978-3-032-05472-2_2" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/SN-DGM4MICCAI 2025-f8f8f8?style=flat&labelColor=01324b"></a>
-            </div>
-            <div class="col-sm-2">
-                <a href="https://arxiv.org/abs/2507.16429" target="_blank"><img src="https://img.shields.io/badge/arXiv-2507.16429-b31b1b?style=flat&logo=arXiv&logoColor=%23B31B1B"></a>
-            </div>
-        </div>
-
-        <br>
-
-        <hr>
-
-        <div class="row" style="font-size:32px">
-            <div class="col">
-                1.Overview
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <p style="text-align: justify;">
-                    <b>MOSXAV</b> is a benchmark dataset designed for <b>multi-object segmentation</b> in X-ray angiography videos. It provides high-quality, manually annotated segmentation ground truth, supporting the analysis of vascular structures in dynamic medical imaging. Each video contains <b>33~70 frames</b> at a resolution of <b>512*512 pixels</b>. Vascular regions are annotated by experienced radiologists, with annotations focused on <b>one or two key frames</b> where the contrast agent is most prominent.
-                    <ul>
-                        <li>The <b>training and validation sets</b> include 30 sequences (2,335 frames), with annotations every 5 frames.</li>
-                        <li>The <b>test set</b> consists of 12 sequences (488 frames), with frame-level annotations throughout.</li>
-                    </ul>
-                </p>
-                <p style="text-align: justify;">
-                MOSXAV provides a valuable resource for the development and benchmarking of methods in X-ray angiography video segmentation.
-                </p>
-            </div>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <div class="row" style="font-size:32px">
-            <div class="col">
-                2.Download
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <ul>
-                    <li>
-                        <p style="text-align: justify;">
-                            MOSXAV database is released to universities and research institutes for research purpose
-                            only.
-                        </p>
-                    </li>
-                    <li>
-                        <p style="text-align: justify;">
-                            Note that please contact <font face="limetart">xilin[dot]chibchin[at]outlook[dot]com</font> for
-                            requests using an official
-                            email address (that is, university or institute email address, and non-official email
-                            addresses
-                            such as
-                            Gmail and 163 are not acceptable). When we receive your reply, we would provide the download
-                            link to
-                            you. [<a href="./MIHR Release Agreement.pdf" target="_blank">Release Agreement</a>]
-                        </p>
-                    </li>
-                    <li>
-                        <p style="text-align: justify;">
-                            Download MOSXAV database in <a href=""
-                                target="_blank">GoogleDrive</a>, <a
-                                href="" target="_blank">OneDrive</a> or <a
-                                href="" target="_blank">BaiduPan</a>.
-                        </p>
-                    </li>
-                    <li>
-                        <p style="text-align: justify;">
-                            By using the MOSXAV database, you are recommended to cite the paper.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <div class="row" style="font-size:32px">
-            <div class="col">
-                3.License
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <p style="text-align: justify;">
-                    The dataset is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-                        target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
-                        License</a>. See <a
-                        href="https://github.com/xilin1991/Large-scale-Multi-illumination-HR-Database/blob/master/LICENSE"
-                        target="_blank">LICENSE</a> for details.
-                </p>
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-                        alt="Creative Commons License" style="border-width:0"
-                        src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-            </div>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-        <div class="row" style="font-size:32px">
-            <div class="col">
-                Citation
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <pre>
-                <code>
-                    @InProceedings{10.1007/978-3-032-05472-2_2,
-                        author={Xi, Lin and Ma, Yingliang and Wang, Cheng and Howell, Sandra and Rinaldi, Aldo and Rhode, Kawal S.},
-                        title={Robust Noisy Pseudo-Label Learning for Semi-supervised Medical Image Segmentation Using Diffusion Model},
-                        booktitle={Deep Generative Models Workshop, International Conference on Medical Image Computing and Computer-Assisted Intervention (DGM4MICCAI)},
-                        year={2026},
-                        pages={12--23}
-                    }
-                </code>
-            </pre>
-            </div>
-        </div>
-
+        <h1>MOSXAV: A Benchmark Dataset for Multi-Object Segmentation in X-ray Angiography Videos</h1>
+        <p>High-quality manually annotated segmentation for dynamic medical imaging</p>
     </div>
+</header>
+
+<main class="container">
+
+    <!-- <section id="demo" class="demo-section">
+        <h2>Demo</h2>
+        <h3>Video Demonstration</h3>
+        <p>Watch a short video demonstrating the multi-object segmentation capabilities of models trained on MOSXAV.</p>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdefg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+        <h3>Image Gallery</h3>
+        <p>Explore some example frames and their corresponding segmentation masks from the MOSXAV dataset.</p>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x150/851080/FFFFFF?text=Original+Frame+1" alt="Original Frame 1">
+            <img src="https://via.placeholder.com/300x150/3498db/FFFFFF?text=Segmentation+Mask+1" alt="Segmentation Mask 1">
+            <img src="https://via.placeholder.com/300x150/851080/FFFFFF?text=Original+Frame+2" alt="Original Frame 2">
+            <img src="https://via.placeholder.com/300x150/3498db/FFFFFF?text=Segmentation+Mask+2" alt="Segmentation Mask 2">
+            <img src="https://via.placeholder.com/300x150/851080/FFFFFF?text=Original+Frame+3" alt="Original Frame 3">
+            <img src="https://via.placeholder.com/300x150/3498db/FFFFFF?text=Segmentation+Mask+3" alt="Segmentation Mask 3">
+            </div>
+    </section> -->
+
+    <section id="overview">
+        <h2>1. Overview</h2>
+        <p>
+            <strong>MOSXAV</strong> is a benchmark dataset designed for <strong>multi-object segmentation</strong> in X-ray angiography videos. It provides <strong>high-quality, manually annotated segmentation ground truth</strong>, supporting the analysis of vascular structures in dynamic medical imaging. Each video contains <strong>33~70</strong> frames at a resolution of <strong>512&times;512 pixels</strong>. Vascular regions are annotated by experienced radiologists, with annotations focused on <strong>one or two key frames</strong> where the contrast agent is most prominent.
+        </p>
+        <ul>
+            <li>The <strong>training and validation sets</strong> include <strong>30 sequences</strong> (2,335 frames), with <strong>annotations every 5 frames</strong>.</li>
+            <li>The <strong>test set</strong> consists of <strong>12 sequences</strong> (488 frames), with <strong>frame-level annotations</strong> throughout.</li>
+        </ul>
+        <p>MOSXAV provides a valuable resource for the development and benchmarking of methods in X-ray angiography video segmentation.</p>
+    </section>
+
+    <section id="protocol">
+        <h2>2. Annotation Protocol</h2>
+        <p>To ensure high-quality and anatomically accurate labels, we implemented a rigorous, multi-stage annotation workflow. This process combined the efficiency of deep learning with the precision of manual expert refinement. The protocol consisted of four primary phases:</p>
+        <ul>
+            <li><strong>Annotator Training:</strong> Annotators were trained on a specialized subset of images to standardize their understanding of anatomical structures and specific labeling guidelines.</li>
+            <li><strong>Semi-Automated Initialization:</strong> We utilized a semi-automated approach to generate initial segmentation masks. This was powered by the <a href="https://github.com/PaddlePaddle/PaddleSeg">PaddleSeg</a> framework, leveraging models pre-trained on extensive image and video datasets to provide a robust baseline.</li>
+            <li><strong>Expert Revision:</strong> Human annotators meticulously reviewed the AI-generated masks. This involved careful delineation of vessel boundaries and manual adjustments to correct any discrepancies in the automated output.</li>
+            <li><strong>Consensus & Quality Assurance:</strong> To maintain consistency, a final review and consensus-building phase were conducted, ensuring that all labels met our strict quality benchmarks.</li>
+        </ul>
+    </section>
+
+    <section id="statistics">
+        <h2>3 Object Categories and Statistics</h2>
+        <p>The <strong>MOSXAV dataset</strong> is designed to support two distinct medical imaging challenges: Video Object Segmentation (VOS) and Multi-class Semantic Segmentation.</p>
+
+        <h3>3.1 Video Object Segmentation (VOS)</h3>
+        <p>The VOS task focuses on the temporal tracking and segmentation of coronary arteries as they are opacified by contrast agents. This task requires high temporal consistency across video sequences:</p>
+        <ul>
+            <li><strong>Objective:</strong> Segmenting coronary arteries filled with contrast agents throughout the cardiac cycle.</li>
+            <li><strong>Object Density:</strong> <strong>Train & Val Sets:</strong> Up to 5 individual objects per sequence. <strong>Test Set:</strong> Increased complexity with up to 10 individual objects per sequence to evaluate model scalability and robustness.</li>
+        </ul>
+
+        <h3>3.2 Semantic Segmentation</h3>
+        <p>The semantic segmentation task targets the simultaneous identification of critical intervention tools and anatomical features. We define four primary categories:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Label ID</th>
+                    <th>RGB Color</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Background</td>
+                    <td>0</td>
+                    <td><span class="color-badge" style="background-color:rgb(0,0,0)"></span>[0,0,0]</td>
+                    <td>All pixels not belonging to the below classes, including the spine, ribs, diaphragm, and image noise.</td>
+                </tr>
+                <tr>
+                    <td>Vessel</td>
+                    <td>1</td>
+                    <td><span class="color-badge" style="background-color:rgb(85,170,255)"></span>[85,170,255]</td>
+                    <td>The primary coronary anatomy under observation.</td>
+                </tr>
+                <tr>
+                    <td>Contrast Catheter</td>
+                    <td>2</td>
+                    <td><span class="color-badge" style="background-color:rgb(170,255,0)"></span>[170,255,0]</td>
+                    <td>The specific catheter used for dye injection.</td>
+                </tr>
+                <tr>
+                    <td>Catheter</td>
+                    <td>3</td>
+                    <td><span class="color-badge" style="background-color:rgb(249,193,0)"></span>[249,193,0]</td>
+                    <td>General-purpose intervention or diagnostic catheters.</td>
+                </tr>
+                <tr>
+                    <td>Balloon</td>
+                    <td>4</td>
+                    <td><span class="color-badge" style="background-color:rgb(255,0,0)"></span>[255,0,0]</td>
+                    <td>Angioplasty balloons used during interventional procedures.</td>
+                </tr>
+                <tr>
+                    <td>Others</td>
+                    <td>5</td>
+                    <td><span class="color-badge" style="background-color:rgb(244,108,59)"></span>[244,108,59]</td>
+                    <td>Other category.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3.3 File Structure</h3>
+        <p>The MOSXAV dataset is organized into a hierarchical directory structure to support both video-level (VOS) and frame-level (Semantic Segmentation) tasks.</p>
+        <pre><code>MOSXAV_Dataset/
+├── trainval/
+│   ├── Annotations/                # VOS instance masks (unique ID per branch)
+│   │   └── v00/                    # Sequence folder
+│   │       ├── 00000.png           # Frame-wise instance mask
+│   │       └── ...
+│   ├── Annotations_Semantic/       # Multi-class semantic masks (Label IDs 0-4)
+│   │   └── v00/
+│   │       ├── 00000.png
+│   │       └── ...
+│   ├── JPEGImages/                 # Raw X-ray Angiography frames
+│   │   └── v00/
+│   │       ├── 00000.jpg
+│   │       └── ...
+│   ├── ImageSets/                  # Split lists and first-frame metadata
+│   │   ├── train.txt
+│   │   ├── val.txt
+│   │   └── val_first_mask.json     # Each object's first appearance frame ID
+│   └── labels.json                 # Global category metadata
+└── test/
+    ├── Annotations/
+    ├── Annotations_Semantic/       # Multi-class semantic masks (Label IDs 0-5)
+    ├── JPEGImages/
+    ├── ImageSets/
+    │   ├── test.txt
+    │   └── test_first_mask.json    # Each object's first appearance frame ID
+    └── labels.json</code></pre>
+    </section>
+
+    <section id="download">
+        <h2>4. Download</h2>
+        <p>The MOSXAV Dataset is hosted across multiple cloud storage platforms to ensure accessibility and high download speeds globally.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Source</th>
+                    <th>Download Link</th>
+                    <th>Extraction Code / Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>OneDrive</td>
+                    <td><a href="https://1drv.ms/f/c/05b6df5b859ecdde/IgBLUOUDkt5bQ4S80HI2Gb_7AZW-uXoxuXuFPXCrwOUrBPo?e=6fBF22">Link</a></td>
+                    <td><img src="docs/_static/images/onedrive.png" alt="Code PNG" class="contact-img"></td>
+                </tr>
+                <tr>
+                    <td>Google Drive</td>
+                    <td><a href="https://drive.google.com/drive/folders/1d-kOWF7TkXqkRAfmh0ugkEvT9NmXr3cP?usp=sharing">Link</a></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Baidu Pan</td>
+                    <td><a href="https://pan.baidu.com/s/1-1i6nljdrdp90tMg30bZwQ">Link</a></td>
+                    <td><img src="docs/_static/images/baidupan.png" alt="Code PNG" class="contact-img"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="license">
+        <h2>5. License</h2>
+        <p>The dataset is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. See <a href="./LICENSE">LICENSE</a> for details.</p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" class="license-img" />
+        </a>
+    </section>
+
+    <section id="citation">
+        <h2>Citation</h2>
+        <p>Please consider to cite MOSXAV if it helps your research.</p>
+        <pre><code>@InProceedings{10.1007/978-3-032-05472-2_2,
+    author={Xi, Lin and Ma, Yingliang and Wang, Cheng and Howell, Sandra and Rinaldi, Aldo and Rhode, Kawal S.},
+    title={Robust Noisy Pseudo-Label Learning for Semi-supervised Medical Image Segmentation Using Diffusion Model},
+    booktitle={Deep Generative Models Workshop, International Conference on Medical Image Computing and Computer-Assisted Intervention (DGM4MICCAI)},
+    year={2026},
+    pages={12--23}
+}</code></pre>
+    </section>
+
+    <section id="contact" style="margin-bottom: 4rem;">
+        <h2>Contact</h2>
+        <p>For questions or feedback, please contact:</p>
+        <ul>
+            <li>Lin Xi: <img src="docs/_static/images/email1.png" alt="Email 1" class="contact-img"></li>
+            <li>Yingliang Ma: <img src="docs/_static/images/email2.png" alt="Email 2" class="contact-img"></li>
+        </ul>
+    </section>
+
+</main>
 
 </body>
-
 </html>
