@@ -110,4 +110,4 @@ Please consider to cite MOSXAV if it helps your research.
 
 For questions or feedback, please contact:
 * Lin Xi: ![Code PNG](docs/_static/images/email1.png)
-* Yingliang Ma: ![Code PNG](docs/_static/images/email2.png)
+* Yingliang Ma: ![Code PNG](docs/_static/images/email2.png)3
