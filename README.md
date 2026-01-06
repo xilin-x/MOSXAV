@@ -1,7 +1,7 @@
 # <p align="center">MOSXAV: A Benchmark Dataset for Multi-Object Segmentation in X-ray Angiography Videos</p>
 
 <p align="center">
-  <a href="xilin-x.github.io/MOSXAV" target="_blank">
+  <a href="https://xilin-x.github.io/MOSXAV/" target="_blank">
     <img alt="Static Badge" src="https://img.shields.io/badge/Homepage-MOSXAV-yellow?logo=databricks&logoColor=%23FF3621">
   </a>
 </p>
@@ -9,12 +9,8 @@
 <p align="center">
   <b>VOS Task:</b>
   &nbsp;&nbsp;
-  <a href="https://link.springer.com/chapter/10.1007/978-3-032-05472-2_2" target="_blank">
-    <img alt="Static Badge" src="https://img.shields.io/badge/SN-DGM4MICCAI 2025-f8f8f8?style=flat&labelColor=01324b">
-  </a>
-  &nbsp;
-  <a href="https://arxiv.org/abs/2507.16429" target="_blank">
-    <img src="https://img.shields.io/badge/arXiv-2507.16429-b31b1b?style=flat&logo=arXiv&logoColor=%23B31B1B">
+  <a href="https://arxiv.org/abs/2601.00988" target="_blank">
+    <img src="https://img.shields.io/badge/arXiv-2601.00988-b31b1b?style=flat&logo=arXiv&logoColor=%23B31B1B">
   </a>
   &nbsp;&nbsp; | &nbsp;&nbsp;
   <b>Semantic Segmentation Task:</b>
