@@ -139,10 +139,19 @@ The dataset is licensed under a [Creative Commons Attribution-NonCommercial-Shar
 
 ## 📝 Citation
 
-Please consider to cite MOSXAV if it helps your research.
+Please consider citing MOSXAV if it helps your research.
 
 ```bibtex
-@InProceedings{10.1007/978-3-032-05472-2_2,
+@article{FSVOSXA,
+    title={Few-Shot Video Object Segmentation in X-Ray Angiography Using Local Matching and Spatio-Temporal Consistency Loss},
+    author={Xi, Lin and Ma, Yingliang and Zhuang, Xiahai},
+    journal={arXiv preprint arXiv:2601.00988},
+    year={2026}
+}
+```
+
+```bibtex
+@InProceedings{RNPLL,
     author={Xi, Lin and Ma, Yingliang and Wang, Cheng and Howell, Sandra and Rinaldi, Aldo and Rhode, Kawal S.},
     title={Robust Noisy Pseudo-Label Learning for Semi-supervised Medical Image Segmentation Using Diffusion Model},
     booktitle={Deep Generative Models Workshop, International Conference on Medical Image Computing and Computer-Assisted Intervention (DGM4MICCAI)},
