@@ -4,6 +4,10 @@
   <a href="https://xilin-x.github.io/MOSXAV/" target="_blank">
     <img alt="Static Badge" src="https://img.shields.io/badge/Homepage-MOSXAV-yellow?logo=databricks&logoColor=%23FF3621">
   </a>
+  &nbsp;&nbsp;
+  <a href="https://huggingface.co/datasets/xilin-x/MOSXAV" target="_blank">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Hugging%20Face-MOSXAV-%23FFD21E?logo=huggingface&logoColor=%23FFD21E&color=%23FFD21E">
+  </a>
 </p>
 
 <p align="center">
@@ -116,6 +120,7 @@ The MOSXAV Dataset is hosted across multiple cloud storage platforms to ensure a
 | **OneDrive** | [🌐 Click Here](https://1drv.ms/f/c/05b6df5b859ecdde/IgBLUOUDkt5bQ4S80HI2Gb_7AZW-uXoxuXuFPXCrwOUrBPo?e=6fBF22) | ![Code PNG](docs/_static/images/onedrive.png) |
 | **Google Drive** | [🌐 Click Here](https://drive.google.com/drive/folders/1d-kOWF7TkXqkRAfmh0ugkEvT9NmXr3cP?usp=sharing) | - |
 | **Baidu Pan** | [🌐 Click Here](https://pan.baidu.com/s/1-1i6nljdrdp90tMg30bZwQ) | ![Code PNG](docs/_static/images/baidupan.png) |
+| **Hugging Face** | [🌐 Click Here](https://huggingface.co/datasets/xilin-x/MOSXAV) | - |
 
 ---
 
