@@ -97,7 +97,7 @@ MOSXAV_Dataset/
 │   ├── ImageSets/                  # Split lists and first-frame metadata
 │   │   ├── train.txt
 │   │   ├── val.txt
-│   │   └── val_first_mask.json     # Each object's first appearance frame ID
+│   │   └── val_first_mask.json     # Frame ID of each object's first appearance
 │   └── labels.json                 # Global category metadata
 └── test/
     ├── Annotations/
@@ -105,7 +105,7 @@ MOSXAV_Dataset/
     ├── JPEGImages/
     ├── ImageSets/
     │   ├── test.txt
-    │   └── test_first_mask.json    # Each object's first appearance frame ID
+    │   └── test_first_mask.json    # Frame ID of each object's first appearance, along with the seen and unseen object classes in the training set
     └── labels.json
 ```
 
