@@ -145,6 +145,14 @@ The dataset is licensed under a [Creative Commons Attribution-NonCommercial-Shar
 
 ---
 
+## 👥 Contributors
+
+- Principal investigator: [YingLiangUEA](https://github.com/YingLiangUEA)
+- Core contributors: [xilin-x](https://github.com/xilin-x), [YingLiangUEA](https://github.com/YingLiangUEA)
+- Student contributors: [EthanKoland](https://github.com/EthanKoland)
+
+---
+
 ## 📝 Citation
 
 Please consider citing MOSXAV if it helps your research.
